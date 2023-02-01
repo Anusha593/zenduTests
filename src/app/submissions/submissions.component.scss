@@ -1,0 +1,106 @@
+
+  .sub-search{
+    display: flex;
+    flex-direction: row;
+    //justify-content: space-between;
+    gap:30px;
+    align-items: center;
+    font-size: 16px !important;
+  }
+  .search{
+    width: 334px;
+    height: 48px;
+    
+   
+  }
+  .cardContent{
+    margin-left: 16px;
+  }
+  .cardHeading{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 16px;
+  }
+.selectStatus{
+    width: 209px;
+    height: 48px;
+}
+.export{
+    color:#2188D9;
+    font-size: 16px;
+}
+.dot{
+    font-size: 25px;
+    border-radius:4px;
+    top: 5px;
+    position: relative;
+}
+.unassigned{
+    color:#B8B9BC;
+    border:1px solid #B8B9BC;
+    background: #ECECED;
+    border-radius:4px;
+    font-size: 12px;
+    position: relative;
+    top: -8px;
+    right: 10px;
+    padding: 4px;
+   
+}
+.lowrisk{
+    color:#53D86A;;
+    border:1px solid #53D86A;;
+    background:#D7E5DA;
+    border-radius:4px;
+    font-size: 12px;
+    position: relative;
+    top: -8px;
+    right: 10px;
+    padding: 4px;
+}
+.uncomplete{
+    color:#FF3D00;
+    border:1px solid #FF3D00;
+    background: rgba(255, 61, 0, 0.1);
+    border-radius:4px;
+    font-size: 12px;
+    position: relative;
+    top: -8px;
+    right: 10px;
+    padding: 4px;
+}
+.right{
+    position: relative;
+    top:28px;
+}
+.cardFromTo{
+    font-size:16px;
+    font-weight: 100;
+    position: relative;
+    top: 8px;
+    margin-bottom: 8px;
+}
+.cardFromToColor{
+    color:#B8B9BC
+}
+.input-group-text{
+    background-color: white;
+    height: 48px;
+    color: lightgray;
+}
+.map{
+    background: #2188D9;
+}
+.list{
+    background: white;
+}
+table{
+    border: 1px solid #ECECED;
+}
+th,td{
+    font-size: 16px;
+}
+.table{
+    margin-top:32px;
+}

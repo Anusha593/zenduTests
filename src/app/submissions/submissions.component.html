@@ -1,0 +1,113 @@
+<div class="container-fluid">
+
+    <div style="margin-left: 31px;margin-top: 19px;margin-bottom: 20px">
+        <h2>Submissions</h2>
+
+
+        <div class="sub-search">
+            <input type="text" class="search" name="emailAddress" style="font-family: FontAwesome;"
+                placeholder="&#xf002; Search">
+
+            <select class="form-select selectStatus">
+                <option value="" disabled selected>Select From</option>
+                <option>Uncomplete</option>
+                <option>Low Risk</option>
+                <option>Needs Review</option>
+                <option>Unassigned</option>
+            </select>
+            <select class="form-select selectStatus" aria-placeholder="Select Status">
+                <option value="" disabled selected>Select Status</option>
+                <option>Uncomplete</option>
+                <option>Low Risk</option>
+                <option>Needs Review</option>
+                <option>Unassigned</option>
+            </select>
+            <div class="form-group">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" (click)="d2.toggle()"><fa-icon [icon]="faCalendarDays"
+                                style="font-size:16px"></fa-icon></span>
+
+                    </div>
+                    <input class="form-control" style="font-size:16px" placeholder="{{model1}}" name="d2" #c2="ngModel"
+                        [(ngModel)]="model2" ngbDatepicker #d2="ngbDatepicker" value="formattedToday" />
+                </div>
+            </div>
+
+            <div class="btn-group btn-group-toggle" role="group" data-toggle="buttons" style="background: transparent;font-size:16px;
+           height: 45px; border: 1px solid grey;">
+                <button type="button" class="btn" [ngClass]="[mapClicked===true?'map':'list']"
+                    (click)="getColor('map')">Map</button>
+                <button type="button" class="btn" [ngClass]="[listClicked===true?'map':'list']"
+                    (click)="getColor('list')">List</button>
+            </div>
+            <div class="export"> <fa-icon [icon]="faExport"></fa-icon> <span>Export</span></div>
+        </div>
+        <div class="row" *ngIf="mapClicked===true">
+            <div class="left col-md-4">
+                <div>
+
+                    <div class="card" style="position: relative;top:20px;margin-bottom: 0.5rem;"
+                        *ngFor="let x of workFlowData">
+
+
+                        <div class="cardContent">
+                            <div class="cardHeading">
+
+                                <div>
+                                    <h5 style="font-size:18px">Workflow: Requires Location</h5>
+                                </div>
+                                <div><span [ngClass]="getClass(x.status)"><span class="dot">&#x2022;</span>
+                                        {{x.status}}</span></div>
+                            </div>
+
+                            <p class="cardFromTo"><span class="cardFromToColor">From:</span>{{x.from}}</p>
+                            <p class="cardFromTo"><span class="cardFromToColor">To:</span>{{x.to}}</p>
+                            <p class="cardFromTo"><span class="cardFromToColor">Due Date:</span> <span
+                                    style="color: #FF3D00;">{{x.dueDate}}</span></p>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="right col-md-8">
+                <google-map height="555px" width="920px" [center]="center" [zoom]="zoom" (mapClick)="moveMap($event)"
+                    (mapMousemove)="move($event)">
+                    <map-marker *ngFor="let marker of markers" [position]="marker.position"></map-marker>
+                </google-map>
+
+
+            </div>
+
+        </div>
+        <div class="row" *ngIf="listClicked===true">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col"><input type="checkbox" /> Task</th>
+                        <th>Status</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Customer Address</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of submissionData">
+                        <td><input type="checkbox" /> Workflow: Requires Location</td>
+                        <td><span [ngClass]="getClass(x.status)"><span class="dot">&#x2022;</span>
+                                {{x.status}}</span></td>
+                        <td>{{x.from}}</td>
+                        <td>{{x.to}}</td>
+                        <td>{{x.address}}</td>
+                        <td [ngStyle]="{'color':(x.status==='Uncomplete')?'red':'black'}">{{x.dueDate}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

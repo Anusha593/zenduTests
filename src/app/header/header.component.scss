@@ -1,0 +1,43 @@
+.shoppingBag{
+  color:white;
+  font-size: 25px;
+  position: relative;
+  top:-9px;
+}
+.nav-bar{
+  background-color: #2188D9 !important;
+}
+.nav-link {
+  cursor: pointer;
+  color:white !important;
+}
+
+.nav-tabs>.active>a,
+.nav-tabs>.active>a:hover,
+.nav-tabs>.active>a:focus {
+  background-color: #FBDFD9;
+}
+
+.logo {
+  font-style: 'Roboto';
+  position: relative;
+  left: 17px;
+  color: white;
+  font-size: 32px;
+  margin-right: 156px;
+}
+
+.cart {
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-item{
+  margin-right: 48px !important;
+  
+}
+.active{
+  background: #1773BB;;
+}
